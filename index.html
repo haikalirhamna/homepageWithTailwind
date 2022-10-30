@@ -35,6 +35,28 @@
             border-radius: 15px;
             height: 15rem;
           }
+          .modal {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            width: 30%;
+            margin: auto;
+          }
+
+          .modal-container {
+            position: fixed;
+            z-index: 1060;
+            background-color: rgb(0,0,0,0.3);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            pointer-events: none;
+            opacity: 0;
+          }
+            .modal-container.show {
+            pointer-events: auto;
+            opacity: 1;
+          }
         }
       </style>
     <title>Document</title>
@@ -331,4 +353,17 @@
         <p class="my-2 text-center text-slate-400">© 2022 Mangcoding. All rights reserved.</p>
     </footer>
 </body>
+<script>
+    const open = document.querySelectorAll('.btn-show');
+    const modal_container = document.querySelector('#modal_container');
+    const close = document.querySelector('#hide');
+
+    open.addEventListener('click', () => {
+        modal_container.classList.add('show');
+    });
+
+    close.addEventListener('click', () => {
+        modal_container.classList.remove('show');
+    });
+</script>
 </html>
